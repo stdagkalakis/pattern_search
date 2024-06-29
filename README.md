@@ -1,11 +1,17 @@
 # Pattern search
 
-This rust cli tool was created for training purposes. It reads a pattern or word and searches
+This rust cli tool was created for training purposes. It reads a word and searches
 for it inside the provide file path. It then return the line number and the full text of the line
 where the pattern was found.
 
 
-## Run with log
+## Run
+
+```bash
+ cargo run <pattern> <path>
+```
+
+## Run with logs
 
 ```bash
  RUST_LOG=info cargo run <pattern> <path>
@@ -16,5 +22,3 @@ where the pattern was found.
 ```bash
  cargo test
 ```
-
-
