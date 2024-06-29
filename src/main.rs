@@ -9,8 +9,13 @@ mod utils{
 #[derive(Parser)]
 struct Cli
 {
+    /// Word to search in the file
     pattern: String,
-    path: std::path::PathBuf
+    /// Path to the file to search, using as root, the current directory
+    path: std::path::PathBuf,
+    /// Progress bar timer
+    #[clap(short, long, default_value = "10")]
+    timmer: u64
 }
 
 fn main() -> Result<(), Error> {
@@ -19,7 +24,7 @@ fn main() -> Result<(), Error> {
 
     let args = Cli::parse();
 
-    utils::fun::progress_bar_with_sleep();
+    utils::fun::progress_bar_with_sleep(args.timmer);
     let _ = utils::fun::search_pattern(args.pattern, args.path);
 
     info!("Hocus Pocus, programmus terminus!");

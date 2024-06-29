@@ -43,13 +43,21 @@ pub fn search_pattern(pattern: String, path: PathBuf) -> Result<()> {
     Ok(())
 }
 
-pub fn progress_bar_with_sleep() -> (){
+pub fn progress_bar_with_sleep(timer: u64) -> (){
 
     println!("\nIntresting stuff are happening now, please wait...");
+    let timer_value;
+    if timer > 100 {
+        timer_value = 100;
+    } else if timer < 1 {
+        timer_value = 10;
+    }else {
+        timer_value = timer;
+    }
 
     let pb = indicatif::ProgressBar::new(100);
     for _i in 0..100 {
-        sleep(Duration::from_millis(15));
+        sleep(Duration::from_millis(timer_value));
         // pb.println( "Allows for information prints for processes..." ));
         pb.inc(1);
     }
