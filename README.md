@@ -1,6 +1,6 @@
 # Pattern search
 
-This rust cli tools is created for testing purposes. It reads a pattern or word and searches
+This rust cli tool was created for training purposes. It reads a pattern or word and searches
 for it inside the provide file path. It then return the line number and the full text of the line
 where the pattern was found.
 
