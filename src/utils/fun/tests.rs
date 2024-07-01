@@ -21,7 +21,7 @@ fn invalid_search_pattern() {
 
 #[test]
 fn valid_progress_bar_with_sleep() {
-    progress_bar_with_sleep();
+    progress_bar_with_sleep(15 as u64);
 }
 
 #[test]
@@ -36,7 +36,6 @@ fn invalid_adder_negative_numbers() {
 
 #[test]
 fn invalid_adder_bad_params() {
-
     // this is done to ensure test will compile and run
     let result = std::panic::catch_unwind(|| {
         let invalid_param = "invalid".parse::<i64>().unwrap();

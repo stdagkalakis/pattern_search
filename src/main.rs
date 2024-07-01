@@ -1,21 +1,20 @@
-use log::info;
-use clap::Parser;
 use anyhow::Error;
+use clap::Parser;
+use log::info;
 
-mod utils{
-    pub mod fun; 
+mod utils {
+    pub mod fun;
 }
 
 #[derive(Parser)]
-struct Cli
-{
+struct Cli {
     /// Word to search in the file
     pattern: String,
     /// Path to the file to search, using as root, the current directory
     path: std::path::PathBuf,
     /// Progress bar timer
     #[clap(short, long, default_value = "10")]
-    timmer: u64
+    timmer: u64,
 }
 
 fn main() -> Result<(), Error> {
@@ -33,8 +32,8 @@ fn main() -> Result<(), Error> {
 
 // Since println! is super slow, alternative we can use BufWriter and writeln to stdout.
 // here is an example on how to lock the stdout and write to it.
-/* 
-    let stdout = io::stdout(); // get the global stdout entity
-    let mut handle = stdout.lock(); // acquire a lock on it
-    writeln!(handle, "foo: {}", 42); // add `?` if you care about errors here  
- */
+/*
+   let stdout = io::stdout(); // get the global stdout entity
+   let mut handle = stdout.lock(); // acquire a lock on it
+   writeln!(handle, "foo: {}", 42); // add `?` if you care about errors here
+*/
